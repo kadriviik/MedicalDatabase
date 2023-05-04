@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn} from "typeorm";
 
 @Entity()
 export class Prescription extends BaseEntity {
@@ -10,7 +10,7 @@ export class Prescription extends BaseEntity {
     patientID!: string;
 
 
-    @Column({type: "date"})
+    @CreateDateColumn()
     prescriptionDate!: Date;
 
 
@@ -26,12 +26,12 @@ export class Prescription extends BaseEntity {
     doctorID!: string;
 
 
-    @Column({type: "varchar", length: 255})
-    drugID!: string;
+    @Column("number")
+    drugID!: number;
 
 
-    @Column({type: "varchar", length: 255})
-    prescriptionType!: string;
+    @Column()
+    refillable!: boolean;
 
 
     @Column({type: "varchar", length: 255, nullable: true})

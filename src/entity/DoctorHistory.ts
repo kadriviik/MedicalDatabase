@@ -1,12 +1,12 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn} from "typeorm";
 
 @Entity()
-export class doctorHistory extends BaseEntity {
+export class DoctorHistory extends BaseEntity {
     @PrimaryGeneratedColumn()
-    id!: number;
+    ID!: number;
 
 
-    @Column({type: "date"})
+    @CreateDateColumn({type: "date"})
     startDate!: Date;
 
 

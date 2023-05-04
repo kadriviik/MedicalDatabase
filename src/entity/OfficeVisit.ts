@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn} from "typeorm";
 
 @Entity()
 export class OfficeVisit extends BaseEntity {
@@ -12,7 +12,7 @@ export class OfficeVisit extends BaseEntity {
     @Column({type: "varchar", length: 20})
     doctorID!: number;
 
-    @Column({type: "date"})
+    @CreateDateColumn({type: "date"})
     dateOfVisit!: Date;
 
     @Column({type: "text"})

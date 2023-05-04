@@ -4,7 +4,7 @@ import { Patient } from "./entity/Patient";
 import { Doctor } from "./entity/Doctor";
 import {Diagnosis} from "./entity/Diagnosis";
 import {InsuranceCompany} from "./entity/InsuranceCompany";
-import {doctorHistory} from "./entity/DoctorHistory";
+import {DoctorHistory} from "./entity/DoctorHistory";
 import {Hospital} from "./entity/Hospital";
 import {DoneProcedures} from "./entity/DoneProcedures";
 import {Drug} from "./entity/Drug";
@@ -27,7 +27,7 @@ const defaultDataSource = new DataSource({
     username: config.database.username,
     password: config.database.password,
     database: config.database.db,
-    entities: [Patient, Doctor, Diagnosis, doctorHistory, InsuranceCompany, Hospital, DoneProcedures, Drug, EmergencyVisit, FollowUpVisit, InitialVisit, RoutineVisit, Invoice, NonRefillablePresc, OfficeVisit, Prescription, RefillablePrescription],
+    entities: [Patient, Doctor, Diagnosis, DoctorHistory, InsuranceCompany, Hospital, DoneProcedures, Drug, EmergencyVisit, FollowUpVisit, InitialVisit, RoutineVisit, Invoice, NonRefillablePresc, OfficeVisit, Prescription, RefillablePrescription],
     synchronize: true,
 });
 

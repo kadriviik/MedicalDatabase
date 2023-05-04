@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, OneToMany, Column, BaseEntity} from "typeorm";
+import { Patient} from "./Patient";
 
 @Entity()
 export class InsuranceCompany extends BaseEntity {
@@ -11,6 +12,9 @@ export class InsuranceCompany extends BaseEntity {
 
     @Column({type: "varchar", length: 20})
     phone!: number;
+
+    @OneToMany(() => Patient, (patient) => patient.ID)
+    patient!: Patient[]
 }
 
 
