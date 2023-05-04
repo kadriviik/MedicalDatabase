@@ -9,4 +9,5 @@ export class Diagnosis extends BaseEntity {
     @Column({type: "varchar", length: 255})
     diagnoseName!: string;
 
+
 }
