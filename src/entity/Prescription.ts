@@ -1,4 +1,7 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, CreateDateColumn} from "typeorm";
+import {Drug} from "./Drug";
+import {Patient} from "./Patient"
+import {Doctor} from "./Doctor"
 
 @Entity()
 export class Prescription extends BaseEntity {
@@ -33,9 +36,16 @@ export class Prescription extends BaseEntity {
     @Column()
     refillable!: boolean;
 
-
     @Column({type: "varchar", length: 255, nullable: true})
     numberOfRefills!: number;
 
+    @ManyToOne(() => Drug, (Drug) => Drug.prescriptions)
+    drug!: Drug[];
+
+    @ManyToOne(() => Patient, (Patient) => Patient.prescriptions)
+    patient!: Patient[];
+
+    @ManyToOne(() => Doctor, (Doctor) => Doctor.prescription, )
+    doctor!: Doctor;
 
 }

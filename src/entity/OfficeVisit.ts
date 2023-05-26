@@ -1,4 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, CreateDateColumn} from "typeorm";
+import {Patient} from "./Patient";
+import {Doctor} from "./Doctor";
 
 @Entity()
 export class OfficeVisit extends BaseEntity {
@@ -20,4 +22,10 @@ export class OfficeVisit extends BaseEntity {
 
     @Column({type: "varchar"})
     procedureID!: number;
+
+    @ManyToOne(() => Patient, patient => patient.officeVisits)
+    patient!: Patient[];
+
+    @ManyToOne(() => Doctor, doctor => doctor.officeVisits)
+    doctor!: Doctor[];
 }

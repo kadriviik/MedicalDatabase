@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, BaseEntity} from "typeorm";
+import {Prescription} from "./Prescription";
 
 @Entity()
 export class Drug extends BaseEntity {
@@ -16,4 +17,7 @@ export class Drug extends BaseEntity {
 
     @Column({type: "varchar", length: 255, nullable: true})
     drugSideEffects!: string;
+
+    @OneToMany(() => Prescription, prescription => prescription.drug)
+    prescriptions!: Prescription[];
 }

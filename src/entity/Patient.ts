@@ -1,6 +1,8 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany} from "typeorm";
 import {Doctor} from "./Doctor";
 import {InsuranceCompany} from "./InsuranceCompany";
+import {Prescription} from "./Prescription";
+import {OfficeVisit} from "./OfficeVisit";
 
 @Entity()
 export class Patient extends BaseEntity {
@@ -38,4 +40,10 @@ export class Patient extends BaseEntity {
 
     @ManyToOne(() => InsuranceCompany, (InsuranceCompany) => InsuranceCompany.patient)
     insuranceCompany!: InsuranceCompany[]
+
+    @OneToMany(() => Prescription, prescription => prescription.patient)
+    prescriptions!: Prescription[];
+
+    @OneToMany(() => OfficeVisit, officeVisit => officeVisit.patientID)
+    officeVisits!: OfficeVisit[];
 }
