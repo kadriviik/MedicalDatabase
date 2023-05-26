@@ -6,7 +6,7 @@ export class Prescription extends BaseEntity {
     id!: number;
 
 
-    @Column({type: "varchar", length: 255})
+    @Column({type: "varchar"})
     patientID!: string;
 
 
@@ -22,11 +22,11 @@ export class Prescription extends BaseEntity {
     prescriptionDuration!: string;
 
 
-    @Column({type: "varchar", length: 255})
+    @Column({type: "varchar"})
     doctorID!: string;
 
 
-    @Column("number")
+    @Column("varchar")
     drugID!: number;
 
 

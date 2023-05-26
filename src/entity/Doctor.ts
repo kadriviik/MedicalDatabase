@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, OneToMany, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, OneToMany, Column, BaseEntity, ManyToOne} from "typeorm";
 import { Patient } from "./Patient"
 
 @Entity()

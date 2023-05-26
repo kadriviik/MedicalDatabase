@@ -4,7 +4,7 @@ import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
 export class FollowUpVisit extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    followUpVisitID!: number;
+    id!: number;
 
     @Column({type: "text"})
     diagnosisStatus!: string;

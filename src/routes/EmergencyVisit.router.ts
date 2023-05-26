@@ -53,12 +53,12 @@ router.post("/", async (req, res) => {
         //    return res.status(400).json({ message: "Doctor with given ID not found" });
         // }
 
-        // create new doctors with given parameters
+        // create new emergency visits with given parameters
         const emergencyVisit = EmergencyVisit.create({
             emergencyDiagnosis: emergencyDiagnosis.trim() ?? "",
         });
 
-        //save article to database
+        //save emergency visit to database
         const result = await emergencyVisit.save();
 
         return res.status(200).json({ data: result });

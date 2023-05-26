@@ -4,7 +4,7 @@ import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
 export class InitialVisit extends BaseEntity {
 
     @PrimaryGeneratedColumn()
-    visitID!: number;
+    id!: number;
 
     @Column({type: "varchar", length: 255})
     initialDiagnosis!: string;
