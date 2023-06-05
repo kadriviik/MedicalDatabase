@@ -1,4 +1,6 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, CreateDateColumn, ManyToOne} from "typeorm";
+import {Patient} from "./Patient";
+import {Doctor} from "./Doctor";
 
 @Entity()
 export class DoctorHistory extends BaseEntity {
@@ -16,4 +18,10 @@ export class DoctorHistory extends BaseEntity {
 
     @Column({type: "varchar", length: 255, nullable: true})
     reasonForLeaving!: string;
+
+    @ManyToOne(() => Patient, (Patient) => Patient.doctorHistory)
+    patient!: Patient[];
+
+    @ManyToOne(() => Doctor, (Doctor) => Doctor.doctorHistory)
+    doctor!: Doctor[];
 }

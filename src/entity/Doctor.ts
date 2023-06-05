@@ -3,6 +3,7 @@ import { Patient } from "./Patient"
 import {OfficeVisit} from "./OfficeVisit";
 import {Hospital} from "./Hospital";
 import {Prescription} from "./Prescription";
+import {DoctorHistory} from "./DoctorHistory";
 
 @Entity()
 export class Doctor extends BaseEntity {
@@ -35,5 +36,8 @@ export class Doctor extends BaseEntity {
 
     @OneToMany(() => Prescription, prescription => prescription.drugID)
     prescription!: Prescription[];
+
+    @OneToMany(() => DoctorHistory, doctorHistory => doctorHistory.doctor)
+    doctorHistory!: DoctorHistory[];
 
 }
