@@ -1,6 +1,8 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, CreateDateColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany, CreateDateColumn} from "typeorm";
 import {Patient} from "./Patient";
 import {Doctor} from "./Doctor";
+import {Diagnosis} from "./Diagnosis"
+import {DoneProcedures} from "./DoneProcedures";
 
 @Entity()
 export class OfficeVisit extends BaseEntity {
@@ -28,4 +30,11 @@ export class OfficeVisit extends BaseEntity {
 
     @ManyToOne(() => Doctor, doctor => doctor.officeVisits)
     doctor!: Doctor[];
+
+    @ManyToOne(() => Diagnosis, diagnosis => diagnosis.officeVisits)
+    diagnosis!: Diagnosis[];
+
+    @OneToMany (() => DoneProcedures, doneProcedures => doneProcedures.officeVisits)
+    doneProcedures!: DoneProcedures[];
+
 }

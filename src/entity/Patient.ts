@@ -20,7 +20,6 @@ export class Patient extends BaseEntity {
     @Column({type: "varchar", length: 20})
     holderID!: number;
 
-
     @Column({type: "varchar"})
     address!: string;
 

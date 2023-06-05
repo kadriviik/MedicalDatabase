@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne} from "typeorm";
+import {OfficeVisit} from "./OfficeVisit";
 
 @Entity()
 export class DoneProcedures extends BaseEntity {
@@ -11,4 +12,7 @@ export class DoneProcedures extends BaseEntity {
 
     @Column({type: "varchar", length: 20})
     procedurePrice!: number;
+
+    @ManyToOne (() => OfficeVisit, officeVisits => officeVisits.doneProcedures)
+    officeVisits!: OfficeVisit[];
 }
